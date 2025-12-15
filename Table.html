@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSCS 5th Semester - Winter Timetable 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 25px 30px;
+            border-bottom: 5px solid #3949ab;
+        }
+        
+        .university-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .university-name h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .university-name p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .notification-badge {
+            background-color: #e53935;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .timetable-title {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .timetable-title h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .timetable-title p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .info-box {
+            background-color: #e8eaf6;
+            color: #1a237e;
+            padding: 15px 25px;
+            margin: 20px 30px;
+            border-radius: 8px;
+            border-left: 5px solid #3949ab;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 15px 5px 0;
+        }
+        
+        .info-icon {
+            background-color: #3949ab;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .winter-timings {
+            background-color: #f3e5f5;
+            color: #4a148c;
+            padding: 15px 25px;
+            margin: 0 30px 25px;
+            border-radius: 8px;
+            border-left: 5px solid #7b1fa2;
+        }
+        
+        .winter-timings h3 {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .winter-timings h3 i {
+            margin-right: 10px;
+        }
+        
+        .timing-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .timing-block {
+            background-color: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .timing-block h4 {
+            color: #7b1fa2;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .days-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .days-table th {
+            background-color: #3949ab;
+            color: white;
+            padding: 12px 15px;
+            text-align: center;
+            font-weight: 600;
+            border-right: 1px solid #5c6bc0;
+        }
+        
+        .days-table th:last-child {
+            border-right: none;
+        }
+        
+        .days-table td {
+            padding: 15px;
+            vertical-align: top;
+            border-right: 1px solid #eee;
+        }
+        
+        .days-table td:last-child {
+            border-right: none;
+        }
+        
+        .day-header {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a237e;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3949ab;
+            margin-bottom: 15px;
+        }
+        
+        .lecture-slot {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3949ab;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s;
+        }
+        
+        .lecture-slot:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .lecture-time {
+            font-weight: 700;
+            color: #1a237e;
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .lecture-number {
+            background-color: #3949ab;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .lecture-details h4 {
+            color: #d32f2f;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+        
+        .lecture-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .meta-item i {
+            margin-right: 5px;
+            color: #3949ab;
+        }
+        
+        .break-slot {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .break-slot .lecture-time {
+            color: #2e7d32;
+            justify-content: center;
+        }
+        
+        .free-slot {
+            background-color: #f5f5f5;
+            border-left-color: #9e9e9e;
+            text-align: center;
+            padding: 20px;
+            color: #757575;
+        }
+        
+        .free-slot .lecture-time {
+            color: #616161;
+            justify-content: center;
+        }
+        
+        .footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            margin-top: 30px;
+            border-top: 5px solid #3949ab;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .contact-hours {
+            font-weight: 600;
+            color: #bbdefb;
+            font-size: 16px;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+        
+        @media (max-width: 1200px) {
+            .days-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+            
+            .university-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .notification-badge {
+                margin-top: 10px;
+            }
+            
+            .info-box, .winter-timings {
+                margin: 15px;
+            }
+            
+            .timing-details {
+                flex-direction: column;
+            }
+            
+            .days-table th, .days-table td {
+                padding: 10px;
+            }
+            
+            .lecture-slot {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="university-info">
+                <div class="university-name">
+                    <h1>LAHORE GARRISON UNIVERSITY</h1>
+                    <p>Main Campus, Sector-C Phase-VI, DHA Lahore | Ph: 042-37181821-22 | Email: info@lgu.edu.pk</p>
+                </div>
+                <div class="notification-badge">
+                    <i class="fas fa-snowflake"></i> Winter Timings 2025
+                </div>
+            </div>
+            
+            <div class="timetable-title">
+                <h2>BSCS - 5th Semester Fall-2025 / Fall-2023 (Sec G)</h2>
+                <p>Winter Timetable (Effective from 15th December 2025)</p>
+            </div>
+        </div>
+        
+        <!-- Information Box -->
+        <div class="info-box">
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div>
+                    <strong>Semester:</strong> Fall 2025 / Fall 2023
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <strong>Section:</strong> G
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <strong>Program:</strong> BSCS 5th Semester
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                    <strong>Total Contact Hours:</strong> 33 hours/week
+                </div>
+            </div>
+        </div>
+        
+        <!-- Winter Timings Notice -->
+        <div class="winter-timings">
+            <h3><i class="fas fa-info-circle"></i> Winter Timings Information</h3>
+            <div class="timing-details">
+                <div class="timing-block">
+                    <h4>Monday to Thursday</h4>
+                    <p><strong>Lectures:</strong> 09:00 to 15:40 hrs</p>
+                    <p><strong>Format:</strong> 1 hr 30 min lectures</p>
+                    <p><strong>Days:</strong> Regular classes as per timetable</p>
+                </div>
+                <div class="timing-block">
+                    <h4>Friday</h4>
+                    <p><strong>Lectures:</strong> 09:00 to 15:40 hrs</p>
+                    <p><strong>Jumma Break:</strong> 13:00 to 14:20 hrs (80 mins)</p>
+                    <p><strong>Note:</strong> Adjusted schedule for prayers</p>
+                </div>
+                <div class="timing-block">
+                    <h4>Saturday & Sunday</h4>
+                    <p><strong>Timings:</strong> 09:00 hrs onwards</p>
+                    <p><strong>Classes:</strong> No regular classes</p>
+                    <p><strong>Note:</strong> Special sessions if scheduled</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timetable -->
+        <table class="days-table">
+            <thead>
+                <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Monday -->
+                    <td>
+                        <div class="day-header">Monday</div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>09:00 - 10:20</span>
+                                <span class="lecture-number">Lecture 1</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>HCI and Computer Graphics</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Naeem Ur Rehman
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 20 NB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: X
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>10:20 - 11:40</span>
+                                <span class="lecture-number">Lecture 2</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Software Engineering</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> M Shakeel
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 21 NB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: 2wdzl5it
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>11:40 - 13:00</span>
+                                <span class="lecture-number">Lecture 3</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Artificial Intelligence</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Zainab Zafar
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 20 NB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: uzp6bls3
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>13:00 - 14:20</span>
+                                <span class="lecture-number">Lecture 4</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Digital Image Processing</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Aisha Riaz
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 17 NB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: btl3ue4c
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="free-slot">
+                            <div class="lecture-time">
+                                <span>14:20 - 15:40</span>
+                            </div>
+                            <h4>No Scheduled Class</h4>
+                            <p>Free Period</p>
+                        </div>
+                    </td>
+                    
+                    <!-- Tuesday -->
+                    <td>
+                        <div class="day-header">Tuesday</div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>09:00 - 10:20</span>
+                                <span class="lecture-number">Lecture 1</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Operating Systems</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Batool Abbas
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 20 NB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: 7jre6n7o
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>10:20 - 11:40</span>
+                                <span class="lecture-number">Lecture 2</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Computer Architecture Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Hassan Abbas Enver
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 22 OB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: 53r4asfg
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>11:40 - 13:00</span>
+                                <span class="lecture-number">Lecture 3</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Computer Architecture Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Hassan Abbas Enver
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 22 OB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: 53r4asfg
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>13:00 - 14:20</span>
+                                <span class="lecture-number">Lecture 4</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Web Technologies</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> M Yousaf
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 17 NB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: rhnu7gz2
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="free-slot">
+                            <div class="lecture-time">
+                                <span>14:20 - 15:40</span>
+                            </div>
+                            <h4>No Scheduled Class</h4>
+                            <p>Free Period</p>
+                        </div>
+                    </td>
+                    
+                    <!-- Wednesday -->
+                    <td>
+                        <div class="day-header">Wednesday</div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>09:00 - 10:20</span>
+                                <span class="lecture-number">Lecture 1</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Digital Image Processing Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Abhin Riot
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 23 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>10:20 - 11:40</span>
+                                <span class="lecture-number">Lecture 2</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Digital Image Processing Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Abhin Riot
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 23 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>11:40 - 13:00</span>
+                                <span class="lecture-number">Lecture 3</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>HCI and Computer Graphics Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Maranda Ali
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 71 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>13:00 - 14:20</span>
+                                <span class="lecture-number">Lecture 4</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>HCI and Computer Graphics Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Maranda Ali
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 71 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="free-slot">
+                            <div class="lecture-time">
+                                <span>14:20 - 15:40</span>
+                            </div>
+                            <h4>No Scheduled Class</h4>
+                            <p>Free Period</p>
+                        </div>
+                    </td>
+                    
+                    <!-- Thursday -->
+                    <td>
+                        <div class="day-header">Thursday</div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>09:00 - 10:20</span>
+                                <span class="lecture-number">Lecture 1</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Artificial Intelligence Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Zainab Zafar
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 03 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>10:20 - 11:40</span>
+                                <span class="lecture-number">Lecture 2</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Artificial Intelligence Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Zainab Zafar
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 53 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>11:40 - 13:00</span>
+                                <span class="lecture-number">Lecture 3</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>HCI and Computer Graphics</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Naeem Ur Rehman
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 18 NB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="free-slot">
+                            <div class="lecture-time">
+                                <span>13:00 - 14:20</span>
+                                <span class="lecture-number">Lecture 4</span>
+                            </div>
+                            <h4>No Scheduled Class</h4>
+                            <p>Free Period</p>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>14:20 - 15:40</span>
+                                <span class="lecture-number">Lecture 5</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Web Technologies Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> M Yousaf
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 94 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <!-- Friday -->
+                    <td>
+                        <div class="day-header">Friday</div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>09:00 - 10:20</span>
+                                <span class="lecture-number">Lecture 1</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Computer Architecture</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Hassan Abbas Enver
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Room 14 MB
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="free-slot">
+                            <div class="lecture-time">
+                                <span>10:20 - 11:40</span>
+                            </div>
+                            <h4>No Scheduled Class</h4>
+                            <p>Free Period</p>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>11:40 - 13:00</span>
+                                <span class="lecture-number">Lecture 3</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Operating Systems Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Sabera Siddiqa
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 52 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="break-slot">
+                            <div class="lecture-time">
+                                <span>13:00 - 14:20</span>
+                            </div>
+                            <h4><i class="fas fa-mosque"></i> Jumma Break</h4>
+                            <p>80 minutes prayer break</p>
+                        </div>
+                        
+                        <div class="lecture-slot">
+                            <div class="lecture-time">
+                                <span>14:20 - 15:40</span>
+                                <span class="lecture-number">Lecture 5</span>
+                            </div>
+                            <div class="lecture-details">
+                                <h4>Operating Systems Lab</h4>
+                                <div class="lecture-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-user"></i> Sabera Siddiqa
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i> Lab 53 OR
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-video"></i> Google Code: [g]lab.db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <!-- Saturday -->
+                    <td>
+                        <div class="day-header">Saturday</div>
+                        <div class="free-slot" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                            <div class="lecture-time">
+                                <span>All Day</span>
+                            </div>
+                            <h4><i class="fas fa-calendar-times"></i> No Regular Classes</h4>
+                            <p>All slots are free</p>
+                            <p style="margin-top: 15px; font-size: 14px;">
+                                <i class="fas fa-info-circle"></i> Special sessions may be scheduled if needed
+                            </p>
+                        </div>
+                    </td>
+                    
+                    <!-- Sunday -->
+                    <td>
+                        <div class="day-header">Sunday</div>
+                        <div class="free-slot" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                            <div class="lecture-time">
+                                <span>All Day</span>
+                            </div>
+                            <h4><i class="fas fa-calendar-times"></i> No Regular Classes</h4>
+                            <p>All slots are free</p>
+                            <p style="margin-top: 15px; font-size: 14px;">
+                                <i class="fas fa-info-circle"></i> Special sessions may be scheduled if needed
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Total Contact Hours per Week: 33 hours</strong></p>
+            <p class="contact-hours">Effective from: Monday, 15th December 2025</p>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #f9f9f9; border: 1px solid #3949ab;"></div>
+                    <span>Regular Class</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #e8f5e9;"></div>
+                    <span>Break Period</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #f5f5f5;"></div>
+                    <span>Free Period</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #f3e5f5;"></div>
+                    <span>Lab Session</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px;">© 2025 Copyright: Lahore Garrison University</p>
+            <p style="font-size: 14px; opacity: 0.8;">Notification No. H56-25 | Dated: 12th December 2025</p>
+        </div>
+    </div>
+    
+    <script>
+        // Add today's highlight
+        document.addEventListener('DOMContentLoaded', function() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = new Date().getDay();
+            const todayName = days[today];
+            
+            const dayHeaders = document.querySelectorAll('.day-header');
+            
+            dayHeaders.forEach(header => {
+                if (header.textContent === todayName) {
+                    header.style.backgroundColor = '#ffecb3';
+                    header.style.color = '#ff8f00';
+                    header.style.borderRadius = '6px';
+                    header.style.padding = '12px';
+                    header.innerHTML = `<i class="fas fa-calendar-day"></i> ${todayName} (TODAY)`;
+                }
+            });
+            
+            // Add print functionality
+            const printButton = document.createElement('button');
+            printButton.innerHTML = '<i class="fas fa-print"></i> Print Timetable';
+            printButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #1a237e;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 30px;
+                cursor: pointer;
+                font-weight: bold;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s;
+            `;
+            printButton.onmouseover = function() {
+                this.style.backgroundColor = '#3949ab';
+                this.style.transform = 'translateY(-3px)';
+            };
+            printButton.onmouseout = function() {
+                this.style.backgroundColor = '#1a237e';
+                this.style.transform = 'translateY(0)';
+            };
+            printButton.onclick = function() {
+                window.print();
+            };
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>
